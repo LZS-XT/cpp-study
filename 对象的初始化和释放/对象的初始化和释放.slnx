@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="对象的初始化和释放/对象的初始化和释放.vcxproj" Id="a4aeb1fe-4e4f-497a-8662-2b41858686a2" />
+</Solution>

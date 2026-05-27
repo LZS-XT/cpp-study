@@ -1,0 +1,7 @@
+#include"manager.h"
+
+void Manager::ShowInfo()
+{
+	cout << "职工编号:" << m_Id << "\t职工姓名:" << m_Name << "\t部门编号:" << m_DeptId <<
+		"职工岗位:经理" << endl;
+}
