@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="基于多态的职工管理系统/基于多态的职工管理系统.vcxproj" />
+  <Project Path="基于多态的职工管理系统/基于多态的职工管理系统.vcxproj" Id="dc207ca8-72c4-45d6-9339-d5a2e85011f7" />
 </Solution>

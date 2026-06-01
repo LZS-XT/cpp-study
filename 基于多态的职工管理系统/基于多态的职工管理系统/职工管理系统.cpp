@@ -16,7 +16,7 @@ int main()
 			man.ExitSystem();
 			break;
 		case 1:
-			cout << "添加职工" << endl;
+			man.AddWorker();
 			break;
 		case 2:
 			cout << "显示职工" << endl;

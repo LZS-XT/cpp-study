@@ -2,12 +2,14 @@
 
 Mangermeau::Mangermeau()
 {
-	
+	m_empNum = 0;
+	m_empArray = NULL;
 }
 
 Mangermeau::~Mangermeau()
 {
-
+	delete[] m_empArray;
+	m_empArray = NULL;
 }
 
 //显示菜单
@@ -29,7 +31,7 @@ void Mangermeau::Showmeau()
 //退出函数
 void Mangermeau::ExitSystem()
 {
-	cout << "欢迎下次使用" << endl;
+	cout << "退出成功，欢迎下次使用" << endl;
 	system("pause");
 	exit(0);
 }
@@ -40,13 +42,75 @@ void Mangermeau::AddWorker()
 	int id;
 	string name;
 	int dId;
-	cout << "请输入职工编号:" << endl; 
-	cin >> id;
-	cout << "请输入职工姓名:" << endl;
-	cin >> name;
-	cout << "请输入部门编号:" << endl;
-	cin >> dId;
-
+	int addnum;
+	cout << "请输入添加的职工数量" << endl;
+	cin >> addnum;
+	if (addnum > 0)
+	{
+		int newsize = m_empNum + addnum;
+		Worker** newspace = new Worker * [newsize];
+		if (m_empNum != 0)
+		{
+			for (int i = 0; i < m_empNum; i++)
+			{
+				newspace[i] = m_empArray[i];
+			}
+		}
+		for (int i = 0; i < addnum; i++)
+		{
+			cout << "请输入加入的第" << i + 1 << "位职工的编号:" << endl;
+			cin >> id;
+			
+			cout << "请输入加入的第" << i + 1 << "位职工的姓名:" << endl;
+			cin >> name;
+			
+			cout << "请输入加入的第" << i + 1 << "位职工的部门编号:" << endl;
+			cout << "1、老板\n2、经理\n3、普通员工\n" ;
+			
+			do 
+			{
+				cin >> dId;
+				switch (dId)
+				{
+				case 1:
+					newspace[m_empNum + i] = new Boss(id, name, dId);
+					break;
+				case 2:
+					newspace[m_empNum + i] = new Manager(id, name, dId);
+					break;
+				case 3:
+					newspace[m_empNum + i] = new Employee(id, name, dId);
+					break;
+				default:
+					cout << "输入有误，请重新输入" << endl;
+				}
+			} while (dId != 1 && dId != 2 && dId != 3);
+		}
+		
+			delete[] m_empArray;
+			m_empNum = newsize;
+			m_empArray = newspace;
+		
+		cout << "添加成功！" << endl;
+		this->save();
+	}
+	else
+	{
+		cout << "输入有误" << endl;
+	}   
+	system("pause");
+	system("cls");
 }
 
+//保存文件
+void Mangermeau::save()
+{
+	ofstream ofs;
+	ofs.open(FILENAME, ios::out);
+	for (int i = 0; i < m_empNum; i++)
+	{
+		ofs << m_empArray[i]->m_Id << " " << m_empArray[i]->m_Name << " " << m_empArray[i]->m_DeptId << endl;
+	}
+	ofs.close();
+}
 

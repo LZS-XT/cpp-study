@@ -2,6 +2,12 @@
 #include <iostream>
 using namespace std;
 #include"worker.h"
+#include"boss.h"
+#include"manager.h"
+#include"employee.h"
+#include<fstream>
+
+#define FILENAME "empfile.txt"
 
 class Mangermeau
 {
@@ -23,7 +29,8 @@ public:
 	//添加职工
 	void AddWorker();
 
-
+	//保存文件
+	void save();
 
 
 };
