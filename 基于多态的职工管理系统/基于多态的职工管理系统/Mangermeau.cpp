@@ -319,3 +319,62 @@ void Mangermeau::ChangeEmp()
 	system("pause");
 	system("cls");
 }
+
+//≈≈–Ú÷∞π§
+void Mangermeau::PaixuEmp()
+{
+	int P;
+	cout << "«Î—°‘Ò≈≈–Ú∑Ω Ω£∫\n1°¢…˝–Ú\n2°¢Ωµ–Ú\n";
+	cin >> P;
+	if (P == 1)
+	{
+		//√∞≈›≈≈–Ú
+		cout << "ƒ˙—°‘Òµƒ «…˝–Ú" << endl;
+		for (int i = 0; i < m_empNum-1; i++)
+		{
+			for (int j = 0; j < m_empNum - 1 - i; j++)
+			{
+				if (m_empArray[j]->m_Id >= m_empArray[j + 1]->m_Id)
+				{
+					Worker* temp = m_empArray[j];
+					m_empArray[j] = m_empArray[j + 1];
+					m_empArray[j + 1] = temp;
+				}
+			}
+		}
+	}
+	else if (P == 2)
+	{
+		//—°‘Ò≈≈–Ú
+		cout << "ƒ˙—°‘Òµƒ «Ωµ–Ú" << endl;
+		int max;
+		for (int i = 0; i < m_empNum; i++)
+		{
+			max = i;
+			for (int j = i + 1; j < m_empNum; j++)
+			{
+				if (m_empArray[max]->m_Id <= m_empArray[j]->m_Id)
+				{
+					max = j;
+				}
+			}
+			if (max != i)
+			{
+				Worker* temp = m_empArray[i];
+				m_empArray[i] = m_empArray[max];
+				m_empArray[max] = temp;
+			}
+		}
+	}
+	else
+	{
+		cout << " ‰»Î”–ŒÛ" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+	cout << "≈≈–Ú≥…π¶" << endl;
+	save();
+	system("pause");
+	system("cls");
+}

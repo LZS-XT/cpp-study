@@ -31,7 +31,7 @@ int main()
 			man.ChangeEmp();
 			break;
 		case 6:
-			cout << "排序职工" << endl;
+			man.PaixuEmp();
 			break;
 		case 7:
 			cout << "清空文件" << endl;

@@ -54,4 +54,7 @@ public:
 
 	//修改职工
 	void ChangeEmp();
+
+	//排序职工
+	void PaixuEmp();
 };
