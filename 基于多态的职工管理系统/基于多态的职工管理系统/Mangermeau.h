@@ -49,4 +49,6 @@ public:
 	//删除职工
 	void DelEmp();
 
+	// 查找职工
+	void FindEmp();
 };

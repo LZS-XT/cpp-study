@@ -25,7 +25,7 @@ int main()
 			man.DelEmp();
 			break;
 		case 4:
-			cout << "查找职工" << endl;
+			man.FindEmp();
 			break;
 		case 5:
 			cout << "修改职工" << endl;

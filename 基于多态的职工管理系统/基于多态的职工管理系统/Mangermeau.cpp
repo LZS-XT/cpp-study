@@ -237,3 +237,27 @@ void Mangermeau::DelEmp()
 	system("pause");
 	system("cls");
 }
+
+// 查找职工
+void Mangermeau::FindEmp()
+{
+	int id;
+	cout << "请输入查找职工的编号：" << endl;
+	cin >> id;
+	if (!is_exist(id))
+	{
+		cout << "该职工不存在" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+	for (int i = 0; i < m_empNum; i++)
+	{
+		if (m_empArray[i]->m_Id == id)
+		{
+			m_empArray[i]->ShowInfo();
+		}
+	}
+	system("pause");
+	system("cls");
+}
