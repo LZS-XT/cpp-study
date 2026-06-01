@@ -261,3 +261,61 @@ void Mangermeau::FindEmp()
 	system("pause");
 	system("cls");
 }
+
+//修改职工
+void Mangermeau::ChangeEmp()
+{
+	int id;
+	int c_id;
+	string c_name;
+	int c_dId;
+	cout << "请输入修改职工的编号：" << endl;
+	cin >> id;
+	if (!is_exist(id))
+	{
+		cout << "该职工不存在" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+	for (int i = 0; i < m_empNum; i++)
+	{
+		if (m_empArray[i]->m_Id == id)
+		{
+			m_empArray[i]->ShowInfo();
+			delete m_empArray[i];
+			m_empArray[i] = NULL;
+			cout << "请输入修改后的职工的编号:" << endl;
+			cin >> c_id;
+
+			cout << "请输入修改后的职工的姓名:" << endl;
+			cin >> c_name;
+
+			cout << "请输入修改后的职工的部门编号:" << endl;
+			cout << "1、老板\n2、经理\n3、普通员工\n";
+
+			do
+			{
+				cin >> c_dId;
+				switch (c_dId)
+				{
+				case 1:
+					m_empArray[i] = new Boss(c_id, c_name, c_dId);
+					break;
+				case 2:
+					m_empArray[i] = new Manager(c_id, c_name, c_dId);
+					break;
+				case 3:
+					m_empArray[i] = new Employee(c_id, c_name, c_dId);
+					break;
+				default:
+					cout << "输入有误，请重新输入" << endl;
+				}
+			} while (c_dId != 1 && c_dId != 2 && c_dId != 3);
+		}
+	}
+	cout << "修改成功" << endl;
+	save();
+	system("pause");
+	system("cls");
+}
