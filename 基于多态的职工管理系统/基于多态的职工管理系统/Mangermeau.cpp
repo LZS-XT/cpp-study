@@ -182,3 +182,14 @@ void Mangermeau::init_Emp()
 	}
 	ifs.close();
 }
+
+//œ‘ æ÷∞π§
+void Mangermeau::ShowEmp()
+{
+	for (int i = 0; i < m_empNum; i++)
+	{
+		m_empArray[i]->ShowInfo();
+	}
+	system("pause");
+	system("cls");
+}

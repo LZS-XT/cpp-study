@@ -40,5 +40,7 @@ public:
 	//初始化职工
 	void init_Emp();
 
+	//显示职工
+	void ShowEmp();
 
 };

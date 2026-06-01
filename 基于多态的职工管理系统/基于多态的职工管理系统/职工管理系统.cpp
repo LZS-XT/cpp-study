@@ -19,7 +19,7 @@ int main()
 			man.AddWorker();
 			break;
 		case 2:
-			cout << "显示职工" << endl;
+			man.ShowEmp();
 			break;
 		case 3:
 			cout << "删除职工" << endl;
