@@ -378,3 +378,44 @@ void Mangermeau::PaixuEmp()
 	system("pause");
 	system("cls");
 }
+
+//清空文件
+void Mangermeau::CleanFile()
+{
+	cout << "您确定要清空文件吗？\n1、确定\n2、取消 \n";
+	int select;
+	cin >> select;
+	if (select == 1)
+	{
+		ofstream ofs;
+		ofs.open(FILENAME, ios::trunc);
+		for (int i = 0; i < m_empNum; i++)
+		{
+			if (m_empArray[i] != NULL)
+			{
+				delete m_empArray[i];
+				m_empArray[i] = NULL;
+			}
+		}
+		delete[]m_empArray;
+		m_empArray = NULL;
+		m_empNum = 0;
+		m_fileempty = true;
+		cout << "清空成功" << endl;
+		system("pause");
+		system("cls");
+	}
+	else if (select == 2)
+	{
+		
+		system("cls");
+		return;
+	}
+	else
+	{
+		cout << "输入有误" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+}

@@ -57,4 +57,7 @@ public:
 
 	//排序职工
 	void PaixuEmp();
+
+	//清空文件
+	void CleanFile();
 };

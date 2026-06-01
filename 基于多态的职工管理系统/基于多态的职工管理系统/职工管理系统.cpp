@@ -34,10 +34,12 @@ int main()
 			man.PaixuEmp();
 			break;
 		case 7:
-			cout << "清空文件" << endl;
+			man.CleanFile();
 			break;
 		default:
 			cout << "输入有误，请重新输入" << endl;
+			system("pause");
+			system("cls");
 		}
 	}
 
