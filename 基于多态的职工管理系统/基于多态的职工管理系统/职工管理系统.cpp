@@ -22,7 +22,7 @@ int main()
 			man.ShowEmp();
 			break;
 		case 3:
-			cout << "删除职工" << endl;
+			man.DelEmp();
 			break;
 		case 4:
 			cout << "查找职工" << endl;

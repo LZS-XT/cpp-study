@@ -193,3 +193,47 @@ void Mangermeau::ShowEmp()
 	system("pause");
 	system("cls");
 }
+
+//判断职工是否存在
+bool Mangermeau::is_exist(int id)
+{
+	for (int i = 0; i < m_empNum; i++)
+	{
+		if (m_empArray[i]->m_Id == id)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+//删除职工
+void Mangermeau::DelEmp()
+{
+	int id;
+	cout << "请输入删除职工的编号：" << endl;
+	cin >> id;
+	if (!is_exist(id))
+	{
+		cout << "该职工不存在" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+	for (int i = 0; i < m_empNum; i++)
+	{
+		if (m_empArray[i]->m_Id == id)
+		{
+			for (int j = i; j < m_empNum; j++)
+			{
+				m_empArray[j] = m_empArray[j + 1];
+			}
+			m_empNum--;
+			i--;
+		}
+	}
+	cout << "删除成功" << endl;
+	this->save();
+	system("pause");
+	system("cls");
+}
