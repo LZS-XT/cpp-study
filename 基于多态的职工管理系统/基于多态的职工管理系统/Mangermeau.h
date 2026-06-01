@@ -20,6 +20,8 @@ public:
 
 	Worker** m_empArray;//职工数组指针
 
+	bool m_fileempty;
+
 	//显示菜单
 	void Showmeau();
 

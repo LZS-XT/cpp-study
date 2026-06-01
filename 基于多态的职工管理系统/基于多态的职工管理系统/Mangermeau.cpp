@@ -2,8 +2,28 @@
 
 Mangermeau::Mangermeau()
 {
-	m_empNum = 0;
-	m_empArray = NULL;
+	ifstream ifs;
+	ifs.open(FILENAME, ios::in);
+	if (!ifs.is_open())
+	{
+		cout << "文件不存在" << endl;
+		m_empArray = NULL;
+		m_empNum = 0;
+		m_fileempty = true;
+		ifs.close();
+		return;
+	}
+	char ch;
+	ifs >> ch;
+	if (ifs.eof())
+	{
+		cout << "文件为空" << endl;
+		m_empArray = NULL;
+		m_empNum = 0;
+		m_fileempty = true;
+		ifs.close();
+		return;
+	}
 }
 
 Mangermeau::~Mangermeau()
@@ -92,6 +112,7 @@ void Mangermeau::AddWorker()
 			m_empArray = newspace;
 		
 		cout << "添加成功！" << endl;
+		this->m_fileempty = false;
 		this->save();
 	}
 	else
