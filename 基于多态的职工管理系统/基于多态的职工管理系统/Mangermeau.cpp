@@ -24,6 +24,9 @@ Mangermeau::Mangermeau()
 		ifs.close();
 		return;
 	}
+	m_empNum = get_EmpNum();
+	m_empArray = new Worker * [m_empNum];
+	init_Emp();
 }
 
 Mangermeau::~Mangermeau()
@@ -135,3 +138,47 @@ void Mangermeau::save()
 	ofs.close();
 }
 
+//获得职工人数
+int Mangermeau::get_EmpNum()
+{
+	int id;
+	string name;
+	int dId;
+	int num=0;
+	ifstream ifs;
+	ifs.open(FILENAME, ios::in);
+	while (ifs >> id && ifs >> name && ifs >> dId)
+	{
+		num++;
+	}
+	ifs.close();
+	return num;
+}
+
+//初始化职工
+void Mangermeau::init_Emp()
+{
+	int id;
+	string name;
+	int dId;
+	int index = 0;
+	ifstream ifs;
+	ifs.open(FILENAME, ios::in);
+	while (ifs >> id && ifs >> name && ifs >> dId)
+	{
+		switch (dId)
+		{
+		case 1:
+			m_empArray[index] = new Boss(id, name, dId);
+			break;
+		case 2:
+			m_empArray[index] = new Manager(id, name, dId);
+			break;
+		case 3:
+			m_empArray[index] = new Employee(id, name, dId);
+			break;
+		}
+		index++;
+	}
+	ifs.close();
+}

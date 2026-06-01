@@ -34,5 +34,11 @@ public:
 	//保存文件
 	void save();
 
+	//获得职工人数
+	int get_EmpNum();
+
+	//初始化职工
+	void init_Emp();
+
 
 };
