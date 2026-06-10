@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="03STL初识-vector存放内置数据类型/03STL初识-vector存放内置数据类型.vcxproj" />
+  <Project Path="03 STL/03 STL.vcxproj" />
 </Solution>
