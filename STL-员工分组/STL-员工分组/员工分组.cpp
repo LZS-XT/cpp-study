@@ -17,7 +17,7 @@ void setworker(vector<Worker>& v)
 	string nameseed = "ABCDEFGHJI";
 	for (int i = 0; i < 10; i++)
 	{
-		Worker w;
+		Worker w;//11
 		w.m_name = "Ô±¹¤";
 		w.m_name += nameseed[i];
 		w.m_salary = rand() % 10000 + 10000;
